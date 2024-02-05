@@ -5,7 +5,7 @@ import { useParams, useSearchParams } from "react-router-dom";
 import Button from "./Button";
 import Modal, { ModalContext } from "./Modal";
 import { useContext } from "react";
-import CreateReviewForm from "./createReviewForm";
+import CreateReviewForm from "./CreateReviewForm";
 import useReview from "../services/useReview";
 import LogoImdb from "../assets/LogoImdb";
 import LogoMetacritic from "../assets/LogoMetacritic";
