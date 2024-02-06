@@ -21,9 +21,9 @@ export async function getPoster({ imdbId }) {
   //returning movie poster
 
   return (
-    data.movieposter?.[0]?.url.replace("http", "https") ||
-    (await getPosterOMDB({ imdbId })).replace("http", "https") ||
-    data.moviebackground?.[0]?.url.replace("http", "https") ||
-    data.moviedisk?.[0]?.url.replace("http", "https")
+    data.movieposter?.[0]?.url ||
+    (await getPosterOMDB({ imdbId })) ||
+    data.moviebackground?.[0]?.url ||
+    data.moviedisk?.[0]?.url
   );
 }
