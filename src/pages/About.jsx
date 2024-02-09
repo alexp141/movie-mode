@@ -23,6 +23,7 @@ const StyledLink = styled(Link)`
     font-weight: 500;
     padding: 1.2rem 2.4rem;
     transition: all 0.3s;
+    padding-left: 0;
   }
 
   &:hover,
