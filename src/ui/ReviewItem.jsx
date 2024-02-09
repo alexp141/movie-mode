@@ -16,10 +16,9 @@ const Review = styled.div`
   width: 90%;
   min-height: 10rem;
   white-space: pre-wrap;
-
+  word-break: keep-all;
   border-top: 1px solid var(--color-purple-light-50);
   padding-top: 1rem;
-  word-break: break-all;
   margin-top: 1rem;
 `;
 

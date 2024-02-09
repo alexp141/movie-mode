@@ -19,6 +19,12 @@ export default function useDislikeReview() {
       queryClient.invalidateQueries({
         queryKey: ["check-if-disliked", post_id],
       });
+      queryClient.invalidateQueries({
+        queryKey: ["get-review-likes", post_id],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ["get-review-dislikes", post_id],
+      });
       toast.success("succesfully disliked post");
     },
     onError: (error) => {
