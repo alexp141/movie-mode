@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import StarRating, { StarContext } from "./StarRating";
-import { useContext, useState } from "react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { submitReview } from "../services/supabaseApi";
 import { toast } from "react-toastify";
@@ -12,6 +11,7 @@ const StyledForm = styled.form`
   font-size: 2rem;
   display: flex;
   flex-direction: column;
+
   gap: 2rem;
   & svg {
     font-size: 4rem;
@@ -41,6 +41,7 @@ const FormSection = styled.div`
 
   & textarea {
     min-height: 30rem;
+    min-width: 45rem;
     border: 1px solid var(--color-purple-light-20);
     border-radius: 3px;
     background-color: var(--color-purple-light-90);
@@ -56,6 +57,7 @@ const RecommendationButtons = styled.div`
 
 export default function CreateReviewForm({
   queryDetails: { title, poster, imdbID },
+  setOpen,
 }) {
   const queryClient = useQueryClient();
   const { mutate, isPending, isLoading } = useMutation({
@@ -63,7 +65,12 @@ export default function CreateReviewForm({
       submitReview({ title, poster, imdbID, rating, review, would_recommend }),
     onSuccess: () => {
       toast.success("Review successfully submitted");
-      queryClient.invalidateQueries();
+      queryClient.invalidateQueries({
+        queryKey: ["all reviews"],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ["review", title],
+      });
     },
     onError: (error) => {
       console.error(error);
@@ -84,10 +91,11 @@ export default function CreateReviewForm({
   });
 
   function onSubmit(data) {
-    console.log(data);
+    console.log("create review form data", data);
     const { rating, review, recommended: would_recommend } = data;
     //Submit Data to Database
     mutate({ rating, review, would_recommend });
+    setOpen("");
   }
 
   function onError(error) {
@@ -155,7 +163,6 @@ export default function CreateReviewForm({
           <label htmlFor="review">Your Review</label>
           <textarea
             id="review"
-            rows="5"
             {...register("review", { required: "this field is required" })}
           />
           {errors?.review?.message}

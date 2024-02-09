@@ -60,10 +60,6 @@ const P = styled.p`
 export default function AppLayout() {
   const { user, fetchStatus } = useUser();
 
-  if (fetchStatus === "fetching") {
-    return <Spinner />;
-  }
-
   const username = user.user_metadata.username;
 
   return (

@@ -13,12 +13,29 @@ const StyledModal = styled.div`
   position: fixed;
   top: 50%;
   left: 50%;
+  max-height: 95vh;
+  overflow-y: scroll;
   transform: translate(-50%, -50%);
   background-color: var(--color-purple-dark-80);
   padding: 2.5rem;
   border: 2px solid var(--color-purple-light-80);
   border-radius: var(--border-radius-lg);
   color: var(--color-white);
+
+  //styling the scrollbar
+  &::-webkit-scrollbar {
+    width: 0.7rem;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2rem;
+    background-color: darkgrey;
+    border: 1px solid darkgrey;
+  }
 `;
 
 const StyledOverlay = styled.div`

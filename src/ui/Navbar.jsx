@@ -27,6 +27,10 @@ const StyledNavLink = styled(NavLink)`
   &:active {
     color: var(--color-purple-light-30);
   }
+
+  &.active {
+    color: #f1f10a;
+  }
 `;
 
 const StyledNavList = styled.ul`

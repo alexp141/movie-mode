@@ -87,7 +87,8 @@ export async function getReviews({ filterValue, pageNumber }) {
     .select(
       "id,created_at,title,rating,review,would_recommend,profiles!watchlist_user_id_fkey(username),imdb_id,poster",
       { count: "estimated" }
-    );
+    )
+    .order("id", { ascending: false });
   //.neq("user_id", user.id);
   console.log("filter value", filterValue);
   //FILTERING

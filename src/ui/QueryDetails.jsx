@@ -208,11 +208,11 @@ export default function QueryDetails() {
       </Section>
       <Modal.Window windowName="review-form">
         <ButtonPicker>
-          <CreateReviewForm queryDetails={{ title, poster, imdbID }} />
+          <CreateReviewForm
+            queryDetails={{ title, poster, imdbID }}
+            setOpen={setOpen}
+          />
         </ButtonPicker>
-      </Modal.Window>
-      <Modal.Window windowName="test-form">
-        <p>test</p>
       </Modal.Window>
     </StyledQueryDetails>
   );

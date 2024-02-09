@@ -52,7 +52,7 @@ function Button({ children, id, recommended, setValue }) {
         onClick={(e) => {
           e.preventDefault();
           setSelectedButton(id);
-          setValue(recommended);
+          setValue("recommended", recommended);
         }}
       >
         {children}
@@ -67,7 +67,7 @@ function Button({ children, id, recommended, setValue }) {
       onClick={(e) => {
         e.preventDefault();
         setSelectedButton(id);
-        setValue(recommended);
+        setValue("recommended", recommended);
       }}
     >
       {children}
