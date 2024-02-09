@@ -11,8 +11,10 @@ export async function submitReview({
 }) {
   console.log("imdb_id", imdbID);
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: {
+      session: { user },
+    },
+  } = await supabase.auth.getSession();
 
   const { data, error } = await supabase
     .from("watchlist")
@@ -40,8 +42,10 @@ export async function getReview(title) {
   if (!title || title === "") return null;
 
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: {
+      session: { user },
+    },
+  } = await supabase.auth.getSession();
 
   const { data, error } = await supabase
     .from("watchlist")
@@ -78,8 +82,10 @@ export async function getWatchList() {
 
 export async function getReviews({ filterValue, pageNumber }) {
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: {
+      session: { user },
+    },
+  } = await supabase.auth.getSession();
   console.log("filter", filterValue);
 
   let query = supabase
@@ -116,8 +122,10 @@ export async function deleteReview(imdbID) {
   if (!imdbID || imdbID === "") return null;
 
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: {
+      session: { user },
+    },
+  } = await supabase.auth.getSession();
 
   const { error } = await supabase
     .from("watchlist")
@@ -135,8 +143,10 @@ export async function deleteReview(imdbID) {
 
 export async function likeReview({ review_post_id, isLiked }) {
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: {
+      session: { user },
+    },
+  } = await supabase.auth.getSession();
 
   if (isLiked) {
     const { error } = await supabase
@@ -182,8 +192,10 @@ export async function likeReview({ review_post_id, isLiked }) {
 
 export async function dislikeReview({ review_post_id, isDisliked }) {
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: {
+      session: { user },
+    },
+  } = await supabase.auth.getSession();
 
   if (isDisliked) {
     const { error } = await supabase
@@ -231,8 +243,10 @@ export async function checkIfLiked({ post_id }) {
   if (!post_id) return null;
 
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: {
+      session: { user },
+    },
+  } = await supabase.auth.getSession();
 
   const { data, error } = await supabase
     .from("review_likes")
@@ -253,8 +267,10 @@ export async function checkIfDisikedReview({ post_id }) {
   if (!post_id) return null;
 
   const {
-    data: { user },
-  } = await supabase.auth.getUser();
+    data: {
+      session: { user },
+    },
+  } = await supabase.auth.getSession();
 
   const { data, error } = await supabase
     .from("review_dislikes")
