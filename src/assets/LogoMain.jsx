@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import popcorn from "/src/assets/popcorn.png";
+import popcorn from "/popcorn.png";
 const StyleLogo = styled.img`
   margin: 0 auto;
   max-width: 60%;

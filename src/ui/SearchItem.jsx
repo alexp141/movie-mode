@@ -1,8 +1,6 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import usePoster from "../services/usePoster";
-import popcorn from "/src/assets/popcorn.png";
-import { useState } from "react";
 import Spinner from "./Spinner";
 const StyledSearchItem = styled.li`
   border: 1px solid transparent;
