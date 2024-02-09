@@ -15,6 +15,7 @@ import useReviewDislikesCount from "../services/useReviewDislikesCount";
 const Review = styled.div`
   width: 90%;
   min-height: 10rem;
+  white-space: pre-wrap;
 
   border-top: 1px solid var(--color-purple-light-50);
   padding-top: 1rem;
@@ -187,12 +188,12 @@ export default function ReviewItem({
         <InteractionBar>
           <Button onClick={handleLikeButton}>
             {!isLiked && <LikeHollow />}
-            {isLiked && <p>liked</p>}
+            {isLiked && <LikeFill />}
           </Button>
           <p>{likeCount}</p>
           <Button onClick={handleDislikeButton}>
             {!isDisliked && <DislikeHollow />}
-            {isDisliked && <p>disliked</p>}
+            {isDisliked && <DislikeFill />}
           </Button>
           <p>{dislikeCount}</p>
         </InteractionBar>

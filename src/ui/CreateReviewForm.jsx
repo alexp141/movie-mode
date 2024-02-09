@@ -58,7 +58,6 @@ export default function CreateReviewForm({
   queryDetails: { title, poster, imdbID },
 }) {
   const queryClient = useQueryClient();
-  const [selectedRec, setSelectedRec] = useState(1);
   const { mutate, isPending, isLoading } = useMutation({
     mutationFn: ({ rating, review, would_recommend }) =>
       submitReview({ title, poster, imdbID, rating, review, would_recommend }),

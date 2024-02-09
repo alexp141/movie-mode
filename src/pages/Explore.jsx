@@ -52,7 +52,7 @@ export default function Explore() {
           return <ReviewItem review={review} key={review.id} />;
         })}
       </StyleList>
-      <Pagination totalResults={count} resultsPerPage={10} />
+      <Pagination totalResults={count} resultsPerPage={RESULTS_PER_PAGE} />
     </>
   );
 }
